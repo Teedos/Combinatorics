@@ -28,13 +28,7 @@ vector<int> findKthPermutation(int n, int k){
     return output;
     
 }
-vector<int> fillVector(int n){
-    vector<int> numbersArray;
-    for (int i=0;i<n;i++){
-        numbersArray.push_back(i+1);
-    }
-    return numbersArray;
-}
+
 int countSmaller(vector<int> permutation,int position){
     if(position ==0)
         return permutation[position]-1;
@@ -50,7 +44,6 @@ int countSmaller(vector<int> permutation,int position){
 }
 
 int findPermutation(vector<int> permutation,int n){
-    //vector<int> numbersArray = fillVector(n);
     int rank=0;
     int count=0;
     for(int i=0;i<n;i++){
@@ -63,18 +56,19 @@ int findPermutation(vector<int> permutation,int n){
     return rank+1;
 }
 int main(){
-    /*int n;
-    int a;
-    cin >> n >> a;*/
-    vector<int> permutation;
-    permutation.push_back(3);
-    permutation.push_back(5);
-    permutation.push_back(1);
-    permutation.push_back(4);
-    permutation.push_back(2);
-    int r= findPermutation(permutation,5);
+    int n;
+    long a;
+    cin >> n >> a;
+    int input;
+    vector <int> permutation;
+    for(int i=0;i<n;i++){
+        cin >> input;
+        permutation.push_back(input);
+    }
 
-    vector <int> output = findKthPermutation(5,r+2);
+    int r= findPermutation(permutation,n);
+
+    vector <int> output = findKthPermutation(n,r+a);
     for(int digit : output){
         cout << digit << ' ';
     }
