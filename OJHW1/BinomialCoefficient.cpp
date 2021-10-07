@@ -9,12 +9,13 @@ int main(){
         k = n-k;
     if(k>n)
         cout << 0;
-    long long result =1;
+    long long multiplier =1; 
+    long long denominator=1;
     for(int i=1;i<=k;i++){
-        result =(result % CONSTANT)*1LL* ((n+1-i)%CONSTANT);
-        result = result/i;
+        multiplier =(multiplier % CONSTANT)* ((n+1-i)%CONSTANT);
+        denominator = (denominator%CONSTANT)*  (i%CONSTANT);
     }
     
-    cout << result%CONSTANT;
+    cout << (multiplier/denominator)%CONSTANT;
     return 0;
 }
